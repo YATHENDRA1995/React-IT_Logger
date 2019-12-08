@@ -1,0 +1,35 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "test1",
+      "attention": true,
+      "tech": "John",
+      "date": "2019-12-07T12:42:20.068Z"
+    },
+    {
+      "message": "Sam",
+      "attention": false,
+      "tech": "Sam Smith",
+      "date": "2019-12-07T14:18:28.851Z",
+      "id": 3
+    }
+  ],
+  "techs": [
+    {
+      "firstName": "yathendra",
+      "lastName": "N",
+      "id": 1
+    },
+    {
+      "firstName": "Anudeep",
+      "lastName": "M",
+      "id": 2
+    },
+    {
+      "firstName": "Pavan Sai",
+      "lastName": "M",
+      "id": 3
+    }
+  ]
+}
