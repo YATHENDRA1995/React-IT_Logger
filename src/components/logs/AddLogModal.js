@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -8,11 +8,18 @@ import M from 'materialize-css/dist/js/materialize';
 import TechSelectOptions from "../techs/TechSelectOptions";
 
 
-const AddLogModal = ({ addLog }) => {
+const AddLogModal = ({ addLog, techs }) => {
 
     const [message, setMessage] = useState('');
     const [attention, setAttention] = useState(false);
+    // const [tech, setTech] = useState(techs !== null && techs.length > 0 ? techs[0] : '');
     const [tech, setTech] = useState('');
+    useEffect(() => {
+        if(techs !== null && techs.length > 0) {
+            setTech(techs[0].firstName + ' ' + techs[0].lastName);
+        }
+    }, [techs])
+
 
     const onSubmit = () => {
         if (message === '' || tech === '') {
@@ -55,7 +62,7 @@ const AddLogModal = ({ addLog }) => {
                     <div className='input-field'>
                         <select
                             name='tech'
-                            value={tech}
+                            value={`${tech.firstName} ${tech.lastName}`}
                             className='browser-default'
                             onChange={e => setTech(e.target.value)}
                         >
@@ -94,7 +101,7 @@ const AddLogModal = ({ addLog }) => {
 };
 
 AddLogModal.propTypes = {
-    addLog:PropTypes.func.isRequired,
+    addLog: PropTypes.func.isRequired,
 };
 
 const modalStyle = {
@@ -102,4 +109,8 @@ const modalStyle = {
     height: '75%'
 }
 
-export default connect(null, { addLog })(AddLogModal);
+const mapStateToProps = state => ({
+    techs: state.tech.techs
+});
+
+export default connect(mapStateToProps, { addLog })(AddLogModal);
