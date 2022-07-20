@@ -1,13 +1,6 @@
 {
   "logs": [
     {
-      "message": "Sam",
-      "attention": false,
-      "tech": "Sam Smith",
-      "date": "2019-12-07T14:18:28.851Z",
-      "id": 3
-    },
-    {
       "message": "test",
       "attention": true,
       "tech": "Pavan Sai M",
